@@ -1,0 +1,237 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  display: flex;
+}
+.pointer {
+  cursor: pointer;
+}
+.sidebar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 90px;
+  height: 100vh;
+  padding: 8 1.7rem;
+  color: #fff;
+  overflow: hidden;
+  transition: all 0.5s linear;
+  /* background: #5e7ad6; */
+  background: rgb(186, 159, 236);
+}
+
+.sidebar:hover {
+  width: 225px !important;
+  transition: 0.5s;
+}
+
+.logo {
+  height: 80px;
+  padding: 12px;
+}
+.img-l img {
+  margin: 10px;
+
+  height: 40px;
+  width: 55px;
+}
+
+.menu {
+  height: 88%;
+  position: relative;
+  list-style: none;
+  padding: 0;
+}
+
+.menu li {
+  padding: 1rem;
+  margin: 5px 0;
+  border-radius: 8px;
+  transition: all 0.5 ease-in-out;
+}
+nav {
+  background-color: rgb(105, 46, 46);
+  margin-top: 40px;
+  height: calc(100% - 90px);
+}
+
+.menu li:hover {
+  background: rgba(83, 27, 187, 0.315);
+  /* background: #135bc7; */
+}
+
+.menu a {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.menu a span {
+  overflow: hidden;
+}
+
+.menu a i {
+  font-size: 1.2rem;
+}
+
+.logout {
+  /* position: absolute; */
+
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.logout img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Main body */
+.main {
+  position: static;
+  background: #ebe9e9;
+  width: 100%;
+  padding: 1rem;
+}
+.header-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px 1rem;
+  margin-bottom: 1rem;
+}
+.input-box {
+  width: 60%;
+}
+.input-field {
+  font-size: 12px;
+  background: rgba(83, 27, 187, 0.315);
+  /* background: #5e7ad6b9; */
+  color: #fff;
+  height: 40px;
+  width: 100%;
+  padding: 0 15px 0 45px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  transition: 0.2s ease;
+}
+.input-box i {
+  position: relative;
+  top: -32px;
+  left: 17px;
+  color: #fff;
+}
+
+::-webkit-input-placeholder {
+  color: #fff;
+  padding-left: 10px;
+  font-weight: 500;
+}
+.header-title {
+  color: rgba(83, 27, 187, 0.719);
+  /* color: #5e7ad6; */
+}
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+.username {
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 7px;
+  width: max-content;
+  max-width: 60%;
+  color: rgba(83, 27, 187, 0.719);
+  /* color: #5e7ad6; */
+}
+
+/**** Card Container ****/
+
+.card-container {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+.card-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.main-title {
+  color: rgba(83, 27, 187, 0.719);
+  /* color: #5e7ad6; */
+  padding-bottom: 10px;
+  font-size: 15px;
+}
+.card-one {
+  background: rgb(229, 223, 223);
+  border-radius: 10px;
+  width: 290px;
+  height: 150px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  transition: all 0.5 ease-in-out;
+}
+.card-one:hover {
+  transform: translateY(-5px);
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.card-inf {
+  display: flex;
+  flex-direction: column;
+}
+title {
+  font-size: 12px;
+  font-weight: 200;
+}
+.card-inf-value {
+  font-size: 24px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 600;
+}
+.card-detail {
+  font-size: 18px;
+  color: #777777;
+  letter-spacing: 2px;
+  font-family: "Courier New", Courier, monospace;
+}
+/*  CSSColor   */
+.light-pink {
+  background: rgba(238, 130, 233, 0.438);
+}
+.light-blue {
+  background: #5e7ad663;
+}
+.light-green {
+  background-color: rgb(235, 254, 235);
+}
+.light-purple {
+  background: rgb(254, 226, 254);
+}
+/*--------------------------- 2do container -----------------------*/
+
+/*--------------------------- 3er container -----------------------*/
