@@ -72,17 +72,53 @@
                         <i><img src="<?= media() ?>/icon/nombre.png" alt="llave"></i>
                     </div>
                 </div>
-                <div class="input-box">
-                    <input type="text" class="input-field" placeholder="Nombre de Usuario" name="nombreUsuario" />
+                <div class="two-forms">
+                    <div class="input-box">
+                        <input type="date" class="input-field" name="fechaNac" id="" title="Fecha De Nacimiento">
+                        <i><img src="<?= media() ?>/icon/usuario.png" alt="nombre"></i>
+                    </div>
 
-                    <i><img src="<?= media() ?>/icon/usuario.png" alt="nombre"></i>
+                    <div class="input-box">
+                        <select name="sexo" class="input-field" id="" style="width:241px; margin-left:40px;">
+                            <option value="F">Femenino</option>
+                            <option value="M">Masculino</option>
+                        </select>
+                        <i style="margin-left:35px;"><img src="<?= media() ?>/icon/usuario.png" alt="nombre"></i>
+                    </div>
+
                 </div>
+
                 <div class="input-box">
-                    <input type="password" class="input-field" placeholder="Contraseña" name="clave" />
+                    <input type="email" class="input-field" placeholder="Correo" name="email" />
                     <i><img src="<?= media() ?>/icon/llave.png" alt="llave"></i>
                 </div>
+
+                <div class="two-forms">
+                    <div class="input-box">
+                        <input type="number" class="input-field" placeholder="telefono" name="telefono" />
+                        <i><img src="<?= media() ?>/icon/usuario.png" alt="nombre"></i>
+                    </div>
+
+
+                    <div class="input-box">
+                        <input type="number" class="input-field" placeholder="Cedula" name="cedula" />
+                        <i><img src="<?= media() ?>/icon/usuario.png" alt="nombre"></i>
+                    </div>
+                </div>
+
                 <div class="input-box">
-                    <button type="submit" class="submit">Registrarse</button>
+                    <input type="password" class="input-field" placeholder="Clave" name="clave" />
+                    <i><img src="<?= media() ?>/icon/llave.png" alt="llave"></i>
+                </div>
+
+                <div class="input-box">
+                    <input type="password" class="input-field" placeholder="Repetir Clave" id="claveRepetida" />
+                    <i><img src="<?= media() ?>/icon/llave.png" alt="llave"></i>
+                </div>
+
+
+                <div class="input-box">
+                    <button type="submit" class="submit" disabled>Registrarse</button>
                 </div>
                 <div class="bottom">
                     <span>¿Ya tiene una cuenta? <a href="#" onclick="login()">Iniciar Sesión</a></span>
@@ -92,7 +128,4 @@
     </main>
 </div>
 
-<script>
-
-</script>
 <?php footerAdmin($data) ?>

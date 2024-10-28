@@ -7,7 +7,7 @@ function estadisticas(
   data,
   element,
   type = "doughnut",
-  label = "# of Votes"
+  label = "Horas trabajadas "
 ) {
   new Chart(element, {
     type,
@@ -34,7 +34,7 @@ function estadisticas(
 /*si quieren ver los mas tipos de diseños de charts
 https://www.chartjs.org/docs/latest/charts/bar.html */
 
-estadisticas(["juan", "pedro", "alberto", "ana"], [1, 2, 3, 4], ctx);
+estadisticas(["hombre", "mujer"], [40, 40], ctx);
 
 estadisticas(
   ["juan", "pedro", "alberto", "ana"],
@@ -45,7 +45,6 @@ estadisticas(
 estadisticas(
   ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio"],
   [12, 2, 23, 34, 45, 56, 92],
-
   ctx3,
   "bar"
 );

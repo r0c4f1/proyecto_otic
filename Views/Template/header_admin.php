@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="<?= media() ?>/css/plugins/css@3.css">
-    <!-- <link rel="stylesheet" href="<?= media() ?>/css/plugins/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="<?= media() ?>/css/plugins/fontawesome/css/fontaweome.min.css">
     <link rel="stylesheet" href="<?= media() ?>/css/plugins/select2.min.css">
     <link rel="stylesheet" href="<?= media() ?>/css/plugins/select2-bootstrap-5-theme.min.css">
     <link rel="stylesheet" href="<?= media() ?>/css/plugins/datatables.min.css">

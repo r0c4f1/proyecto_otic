@@ -19,6 +19,12 @@
                 </a>
             </li>
             <li>
+                <a href="<?= base_url() ?>/Users/users">
+                    <i><img src="<?= media() ?>/icon/estadistica.png" alt="estadísticas"></i>
+                    <span>Usuarios</span>
+                </a>
+            </li>
+            <li>
                 <a href="#">
                     <i><img src="<?= media() ?>/icon/proyectos.png" alt="proyectos"></i>
                     <span>Proyectos</span>

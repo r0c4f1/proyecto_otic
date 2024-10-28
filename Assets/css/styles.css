@@ -144,9 +144,13 @@ body {
   align-items: center;
   justify-content: center;
   width: 512px;
-  height: 420px;
+  height: 620px;
   overflow: hidden;
   z-index: 2;
+}
+
+button:disabled {
+  background-color: #4b4b4b;
 }
 
 .login-container {
@@ -171,6 +175,7 @@ input[type="number"] {
   position: absolute;
   right: -520px;
   width: 500px;
+  height: max-content;
   display: flex;
   flex-direction: column;
   transition: 0.5s ease-in-out;
@@ -269,7 +274,7 @@ header {
 
   .container {
     width: 400px;
-    height: 350px;
+    height: 500px;
   }
 
   .login-container,

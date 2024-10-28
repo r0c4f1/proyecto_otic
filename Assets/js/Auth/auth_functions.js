@@ -5,6 +5,7 @@ let a = document.getElementById("loginBtn");
 let b = document.getElementById("registerBtn");
 let x = document.getElementById("login");
 let y = document.getElementById("register");
+let claveRepetida = document.getElementById("claveRepetida");
 
 function myMenuFunction() {
   if (i.className === "nav-menu") {
@@ -71,14 +72,27 @@ formRegister.addEventListener("submit", (e) => {
 
   let formData = new FormData(formRegister);
 
-  fetch(base_url + "/Auth/RegisterUser", {
+  fetch(base_url + "/Auth/registerUser", {
     method: "POST",
     body: formData,
   })
     .then((res) => res.json())
     .then((res) => {
       if (res.status) {
-        location.href = base_url + "/Home";
+        Swal.fire({
+          toast: true,
+          position: "top-end",
+          icon: "success",
+          text: "Registrado Correctamente",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+
+        login();
+
+        document
+          .querySelectorAll("input")
+          .forEach((input) => (input.value = ""));
       } else {
         Swal.fire({
           icon: "error",
@@ -98,4 +112,12 @@ formRegister.addEventListener("submit", (e) => {
         timer: 1500,
       });
     });
+});
+
+claveRepetida.addEventListener("keyup", () => {
+  let clave = formRegister.children.item(4).children.item(0).value;
+  let button = formRegister.querySelector("button");
+
+  if (claveRepetida.value == clave) button.removeAttribute("disabled");
+  else button.setAttribute("disabled", true);
 });

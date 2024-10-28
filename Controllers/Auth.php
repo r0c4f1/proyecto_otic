@@ -34,13 +34,43 @@ class Auth extends Controllers{
 
             if($requestUser){
                 $_SESSION['login'] = true;
-                $_SESSION['idUser'] = $requestUser['id'];
-                $_SESSION['nameUser'] = $requestUser['nombre'];
-                $_SESSION['ci'] = $requestUser['cedula'];
+                $_SESSION['cedula'] = $requestUser['id_usuario'];
+                $_SESSION['nameUser'] = $requestUser['nombres'];
+                $_SESSION['status'] = $requestUser['status'];
 
                 $arrResponse = array("status" => true);
             }else{
                 $arrResponse = array("status" => false, "title" => "Email o Contraseña Incorrecto!", "msg" => "Revise sus datos!");
+            }
+
+            echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
+        }
+        die();
+    }
+
+    public function registerUser(){
+        if($_POST){
+            $nombre = strClean($_POST["nombre"]);
+            $cedula = strClean($_POST["cedula"]);
+            $apellido = strClean($_POST["apellido"]);
+            $fechaNac = strClean($_POST["fechaNac"]);
+            $sexo = strClean($_POST["sexo"]);
+            $telefono = strClean($_POST["telefono"]);
+            $email = strClean($_POST["email"]);
+            $clave = hash("md5", $_POST["clave"]);
+
+            if(empty($cedula) || empty($clave)){
+                $arrResponse = array('status' => false, "title" => "Error!", "msg" => "Campos cedula y clave nescesarios");
+                echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
+                die();
+            }
+
+            $requestUser = $this->model->userRegister($nombre, $apellido, $fechaNac, $sexo, $telefono, $email, $cedula, $clave);
+
+            if($requestUser){
+                $arrResponse = array("status" => true);
+            }else{
+                $arrResponse = array("status" => false, "title" => "Esta Cedula Esta Registrada!", "msg" => "Cedula Registrada!");
             }
 
             echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
