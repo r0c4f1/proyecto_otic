@@ -67,51 +67,40 @@ formLogin.addEventListener("submit", (e) => {
     });
 });
 
-formRegister.addEventListener("submit", (e) => {
+formRegister.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   let formData = new FormData(formRegister);
 
-  fetch(base_url + "/Auth/registerUser", {
+  let query = await fetch(base_url + "/Auth/registerUser", {
     method: "POST",
     body: formData,
-  })
-    .then((res) => res.json())
-    .then((res) => {
-      if (res.status) {
-        Swal.fire({
-          toast: true,
-          position: "top-end",
-          icon: "success",
-          text: "Registrado Correctamente",
-          showConfirmButton: false,
-          timer: 1500,
-        });
+  });
 
-        login();
+  let { status, title, msg } = await query.json();
 
-        document
-          .querySelectorAll("input")
-          .forEach((input) => (input.value = ""));
-      } else {
-        Swal.fire({
-          icon: "error",
-          title: res.title,
-          text: res.msg,
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      }
-    })
-    .catch(() => {
-      Swal.fire({
-        icon: "error",
-        title: "No disponible!",
-        text: "Intente nuevamente...",
-        showConfirmButton: false,
-        timer: 1500,
-      });
+  if (status) {
+    Swal.fire({
+      toast: true,
+      position: "top-end",
+      icon: "success",
+      text: "Registrado Correctamente",
+      showConfirmButton: false,
+      timer: 1500,
     });
+
+    login();
+
+    document.querySelectorAll("input").forEach((input) => (input.value = ""));
+  } else {
+    Swal.fire({
+      icon: "error",
+      title: title,
+      text: msg,
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  }
 });
 
 claveRepetida.addEventListener("keyup", () => {

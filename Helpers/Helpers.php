@@ -53,7 +53,7 @@
         $format .= print_r('</pre>');
         return $format;
     }
-    function getModal(string $nameModal, $data)
+    function getModal(string $nameModal, $data = '')
     {
         $view_modal = "Views/Template/Modals/{$nameModal}.php";
         require_once $view_modal;        

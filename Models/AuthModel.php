@@ -15,7 +15,7 @@
 		}
 
 		public function userRegister($nombre, $apellido, $fechaNac, $sexo, $telefono, $email, $cedula, $clave){
-			$sql = "SELECT * FROM usuario WHERE id_usuario = '$cedula' AND clave = '$clave'";
+			$sql = "SELECT * FROM usuario WHERE id_usuario = '$cedula'";
 
 			$request = $this->select($sql);
 
@@ -28,9 +28,10 @@
 										 telefono, 
 										 sexo,
 										 email,
-										 clave) VALUES (?,?,?,?,?,?,?,?)";
+										 clave,
+										 admin) VALUES (?,?,?,?,?,?,?,?,?)";
 
-			$arrData = array($cedula, $nombre, $apellido, $fechaNac, $telefono, $sexo, $email, $clave);
+			$arrData = array($cedula, $nombre, $apellido, $fechaNac, $telefono, $sexo, $email, $clave, 0);
 
 			$insert  = $this->insert($sql, $arrData); 
 

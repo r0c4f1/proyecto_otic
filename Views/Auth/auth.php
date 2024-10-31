@@ -23,10 +23,10 @@
                 </li>
             </ul>
         </div>
-        <div class="nav-button">
+        <!-- <div class="nav-button">
             <button class="btn white-btn" id="loginBtn" onclick="login()">Iniciar Sesión</button>
             <button class="btn" id="registerBtn" onclick="register()">Registrarse</button>
-        </div>
+        </div> -->
         <div class="nav-menu-btn">
             <img src="<?= media() ?>/icon/menu.png" alt="" onclick="myMenuFunction()">
         </div>

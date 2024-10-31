@@ -20,7 +20,7 @@
             </li>
             <li>
                 <a href="<?= base_url() ?>/Users/users">
-                    <i><img src="<?= media() ?>/icon/estadistica.png" alt="estadísticas"></i>
+                    <i class="fa-regular fa-user" style="color: #000; font-size: 20px; margin-left:5px;"></i>
                     <span>Usuarios</span>
                 </a>
             </li>
