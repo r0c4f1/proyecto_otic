@@ -7,7 +7,7 @@
 		}
 
 		public function sessionLogin($cedula, $clave){
-			$sql = "SELECT * FROM usuario WHERE id_usuario = '$cedula' AND clave = '$clave'";
+			$sql = "SELECT * FROM usuario WHERE id_usuario = '$cedula' AND clave = '$clave' AND status = 1";
 
 			$request = $this->select($sql);
 
@@ -29,7 +29,7 @@
 										 sexo,
 										 email,
 										 clave,
-										 admin) VALUES (?,?,?,?,?,?,?,?,?)";
+										 nivel) VALUES (?,?,?,?,?,?,?,?,?)";
 
 			$arrData = array($cedula, $nombre, $apellido, $fechaNac, $telefono, $sexo, $email, $clave, 0);
 

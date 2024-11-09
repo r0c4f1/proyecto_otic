@@ -63,7 +63,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                    id="btnCloseEditUsermodal">Close</button>
+                    id="btnCloseEditUsermodal">Cerrar</button>
                 <button type="button" class="btn btn-primary" onclick="updateUser(event)">Actualizar</button>
             </div>
         </div>
@@ -156,7 +156,7 @@
                 </section>
                 <div class="modal-footer">
                     <button type="button" id="btnCloseAddUsermodal" class="btn btn-secondary"
-                        data-bs-dismiss="modal">Close</button>
+                        data-bs-dismiss="modal">Cerrar</button>
                     <button type="submit" id="btnAddUserSubmit" class="btn btn-primary" disabled>Agregar</button>
                 </div>
             </form>
