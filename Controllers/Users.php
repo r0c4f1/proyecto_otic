@@ -28,8 +28,14 @@ class Users extends Controllers {
                 $editar = "<button class='btn btn-outline-success' onclick='editar(".$requestUser[$i]["id_usuario"].")'><i class='fa-regular fa-pen-to-square'></i></button>";
                 $eliminar = "<button class='btn btn-outline-success' onclick='eliminar(".$requestUser[$i]["id_usuario"].")'><i class='fa-solid fa-trash'></i></button>";
                 $requestUser[$i]['opc'] =  $editar . " " . $eliminar;
-
-                $requestUser[$i]['admin'] = $requestUser[$i]['admin'] > 0  ? "<div class='admin'></div>" : "<div class='no-admin'></div>";
+                $requestUser[$i]['sexo'] = $requestUser[$i]['sexo'] ==  "M" ? "Masculino" : "Femenino";
+                if ( $requestUser[$i]['nivel'] == 0) {
+                    $requestUser[$i]['nivel'] = "<div class='user'>0</div>";
+                }else if ($requestUser[$i]['nivel'] == 1) {
+                    $requestUser[$i]['nivel'] = "<div class='boss'>1</div>";
+                }else {
+                    $requestUser[$i]['nivel'] = "<div class='admin'>2</div>";
+                }
 
             }
 
@@ -49,13 +55,27 @@ class Users extends Controllers {
         if ($_POST) {
             $id_usuario = $_POST['id_usuario'];
             $status = $_POST['status'];
+
+            if ($_SESSION["nivel"] == 2) {
+				$arrResponse = array("status" => false, "title" => "Error", "msg" => "No Se Puede Eliminar Al Admin");
+
+				echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
+                return;
+			}
+
+            if ($_SESSION["id_usuario"] == $id_usuario) {
+				$arrResponse = array("status" => false, "title" => "Usuario Activo", "msg" => "No Se Puede Eliminar A Si Mismo");
+
+				echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
+                return;
+			}
             
             $requestUser = $this->model->updateStatus($id_usuario, $status);
 
             if ($requestUser) {
                 $arraResponse =  array("status" => true, "msg" => "Eliminado");
             }else {
-                $arraResponse =  array("status" => false, "msg" => "Error");
+                $arraResponse =  array("status" => false, "title" => "Error", "msg" => "Error Al Actualizar");
             }
 
             echo json_encode($arraResponse, JSON_UNESCAPED_UNICODE);
@@ -91,7 +111,7 @@ class Users extends Controllers {
             $unidad = strClean($_POST["unidad"]);
             $cargo = strClean($_POST["cargo"]);
             $clave = hash("md5", $_POST["clave"]);
-            $admin = isset($_POST["admin"]) ? strClean($_POST["admin"]) : 0;  
+            $nivel = isset($_POST["nivel"]) ? strClean($_POST["nivel"]) : 0;  
 
             if(empty($cedula) || empty($clave)){
                 $arrResponse = array('status' => false, "title" => "Error!", "msg" => "Campos cedula y clave nescesarios");
@@ -99,7 +119,7 @@ class Users extends Controllers {
                 die();
             }
 
-            $requestUser = $this->model->userRegister($nombre, $apellido, $fechaNac, $sexo, $telefono, $email, $cedula, $clave, $admin, $unidad, $cargo);
+            $requestUser = $this->model->userRegister($nombre, $apellido, $fechaNac, $sexo, $telefono, $email, $cedula, $clave, $nivel, $unidad, $cargo);
 
             if($requestUser){
                 $arrResponse = array("status" => true);
@@ -111,8 +131,6 @@ class Users extends Controllers {
         }
         die();
     }
-
-    
     
     public function updateUser(){
         if($_POST){

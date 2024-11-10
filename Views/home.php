@@ -14,7 +14,7 @@ sideBar();
                 <i><img src="<?= media() ?>/icon/buscar.png" alt="búsqueda"></i>
             </div>
             <div class="username">
-                <h5>Natha Ferreira</h5>
+                <h5><?= $_SESSION['nameUser'] ?></h5>
             </div>
         </div>
     </div>
@@ -29,6 +29,7 @@ sideBar();
         <div class="card-wrap" style="width: 600px;">
             <canvas id="myChart3"></canvas>
         </div>
+        <canvas id="miGrafico"></canvas>
         <!-- <div class="card-wrap">
             <div class="card-one light-purple pointer">
                 <div class="card-header">
@@ -131,6 +132,7 @@ sideBar();
     <div>
     </div>
 </div>
+<?= getModal('modal_home') ?>
 
 
 <?php footerAdmin($data) ?>

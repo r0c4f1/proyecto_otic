@@ -1,66 +1,25 @@
 <?php headerAdmin($data);
 sideBar(); ?>
-<style>
-.tabla-estilizada {
-    width: 100%;
-    border-collapse: collapse;
-    font-family: Arial, sans-serif;
-}
-
-.tabla-estilizada th,
-.tabla-estilizada td {
-    border: 1px solid #dddddd;
-    padding: 8px;
-    text-align: start;
-}
-
-.tabla-estilizada th {
-    background-color: #72975e;
-    color: white;
-}
-
-.tabla-estilizada tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-.tabla-estilizada tr:hover {
-    background-color: #ddd;
-}
-
-.admin {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    margin: auto;
-    background-color: #72975e;
-}
-
-.no-admin {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    margin: auto;
-    background-color: #975e5e;
-}
-
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-/* Firefox */
-input[type=number] {
-    -moz-appearance: textfield;
-}
-</style>
 
 <main class="main">
-    <div class="card-container">
-        <div class="text-end">
+    <section class="card-container">
+        <article class="d-flex justify-content-between">
+            <div>
+                <label>
+                    <h6>Usuario</h6>
+                    <div class="user"></div>
+                </label>
+                <label>
+                    <h6>Jefe</h6>
+                    <div class="boss"></div>
+                </label>
+                <label>
+                    <h6>Admin</h6>
+                    <div class="admin"></div>
+                </label>
+            </div>
             <button class="btn btn-primary" onclick="modalAddUserModal()">Agregar Usuario</button>
-        </div>
+        </article>
         <table id="usuarios" class="tabla-estilizada" style="width:100%;">
             <thead>
                 <tr>
@@ -73,12 +32,12 @@ input[type=number] {
                     <th>Nacimiento</th>
                     <th>Unidad</th>
                     <th>Sexo</th>
-                    <th>Admin</th>
+                    <th>Nivel</th>
                     <th>Opc</th>
                 </tr>
             </thead>
         </table>
-    </div>
+    </section>
 
 </main>
 

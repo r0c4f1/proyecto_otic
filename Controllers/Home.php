@@ -21,4 +21,12 @@ class Home extends Controllers{
 		$this->views->getView($this,"home",$data);
     }
 
+    public function getGenderIndicator() {
+        if ($_GET) {
+            $requestUser = $this->model->selectGenderIndicator();
+
+            echo json_encode($requestUser, JSON_UNESCAPED_UNICODE);
+        }
+    }
+
 }

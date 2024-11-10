@@ -16,9 +16,10 @@
     $url = $_SERVER['REQUEST_URI'];  // Obtener la URL actual
     $url = explode("/", htmlspecialchars($url));
     if (strtolower($url[2]) != "auth") { ?>
-    <link rel="stylesheet" href="<?= media() ?>/css/sidebar.css">
-    <?php }else { ?>
+    <link rel="stylesheet" href="<?= media() ?>/css/styleTable.css">
     <link rel="stylesheet" href="<?= media() ?>/css/styles.css">
+    <?php }else { ?>
+    <link rel="stylesheet" href="<?= media() ?>/css/styleLogin.css">
     <?php } ?>
     <title><?= $data['page_title'] ?></title>
 </head>

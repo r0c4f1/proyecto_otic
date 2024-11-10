@@ -34,9 +34,10 @@ class Auth extends Controllers{
 
             if($requestUser){
                 $_SESSION['login'] = true;
-                $_SESSION['cedula'] = $requestUser['id_usuario'];
-                $_SESSION['nameUser'] = $requestUser['nombres'];
+                $_SESSION['id_usuario'] = $requestUser['id_usuario'];
+                $_SESSION['nameUser'] = "{$requestUser['nombres']} {$requestUser['apellidos']}";
                 $_SESSION['status'] = $requestUser['status'];
+                $_SESSION['nivel'] = $requestUser['nivel'];
 
                 $arrResponse = array("status" => true);
             }else{

@@ -25,6 +25,12 @@
                 </a>
             </li>
             <li>
+                <a href="<?= base_url() ?>/Training/training">
+                    <i class="fa-solid fa-arrow-trend-up" style="color: #000; font-size: 20px; margin-left:5px;"></i>
+                    <span>Capacitación</span>
+                </a>
+            </li>
+            <li>
                 <a href="#">
                     <i><img src="<?= media() ?>/icon/proyectos.png" alt="proyectos"></i>
                     <span>Proyectos</span>

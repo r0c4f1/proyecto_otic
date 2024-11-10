@@ -7,7 +7,7 @@
 		}
 
 		public function selectUsers(){
-			$sql = "SELECT id_usuario, id_unidad, nombres, apellidos, fecha_nacimiento, telefono, cargo, sexo, email, admin FROM usuario WHERE status = 1";
+			$sql = "SELECT id_usuario, id_unidad, nombres, apellidos, fecha_nacimiento, telefono, cargo, sexo, email, nivel FROM usuario WHERE status = 1";
 
 			$request = $this->select_all($sql);
 
@@ -15,7 +15,7 @@
 		}
 
 		public function selectUser($id){
-			$sql = "SELECT id_usuario, id_unidad, nombres, apellidos, fecha_nacimiento, telefono, cargo, sexo, email, admin FROM usuario WHERE id_usuario = '$id'";
+			$sql = "SELECT id_usuario, id_unidad, nombres, apellidos, fecha_nacimiento, telefono, cargo, sexo, email, nivel FROM usuario WHERE id_usuario = '$id'";
 
 			$request = $this->select($sql);
 
@@ -42,7 +42,7 @@
 			else return true;
 		}
 
-		public function userRegister($nombre, $apellido, $fechaNac, $sexo, $telefono, $email, $cedula, $clave, $admin, $unidad, $cargo){
+		public function userRegister($nombre, $apellido, $fechaNac, $sexo, $telefono, $email, $cedula, $clave, $nivel, $unidad, $cargo){
 			$sql = "SELECT * FROM usuario WHERE id_usuario = '$cedula'";
 	
 			$request = $this->select($sql);
@@ -57,11 +57,11 @@
 										 sexo,
 										 email,
 										 clave,
-										 admin,
+										 nivel,
 										 id_unidad,
 										 cargo) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 	
-			$arrData = array($cedula, $nombre, $apellido, $fechaNac, $telefono, $sexo, $email, $clave, $admin, $unidad, $cargo);
+			$arrData = array($cedula, $nombre, $apellido, $fechaNac, $telefono, $sexo, $email, $clave, $nivel, $unidad, $cargo);
 
 	
 			$insert  = $this->insert($sql, $arrData); 

@@ -24,7 +24,7 @@ const USUARIOS_TABLE = new DataTable("#usuarios", {
     { data: "fecha_nacimiento" },
     { data: "id_unidad" },
     { data: "sexo" },
-    { data: "admin" },
+    { data: "nivel" },
     { data: "opc" },
   ],
   // dom: "lfrtip",
@@ -119,7 +119,7 @@ async function addUser(e) {
   let { checked } = document.getElementById("isAdmin");
 
   const formData = new FormData(formAddUsers);
-  formData.append("admin", checked ? 1 : 0);
+  formData.append("nivel", checked ? 1 : 0);
 
   let query = await fetch(base_url + "/Users/registerUser", {
     method: "POST",
@@ -181,7 +181,7 @@ async function updateUser(e) {
     });
   });
 
-  let { status, msg } = await query.json();
+  let { status, msg, title } = await query.json();
 
   if (status) {
     Swal.fire({
@@ -198,7 +198,7 @@ async function updateUser(e) {
   } else {
     Swal.fire({
       icon: "error",
-      title: "Error",
+      title,
       text: msg,
       showConfirmButton: false,
       timer: 1500,
