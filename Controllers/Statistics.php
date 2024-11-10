@@ -17,7 +17,7 @@ class Statistics extends Controllers{
 		$data['page_title'] = APP_NAME;
 		$data['page_name'] = "Estadisticas";
         $data['page_functions'] = functions($this, "statistics");
-		$this->views->getView($this,"Statistics",$data);
+		$this->views->getView($this,"statistics",$data);
     }
 
 
