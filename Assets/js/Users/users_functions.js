@@ -119,7 +119,7 @@ async function addUser(e) {
   let { checked } = document.getElementById("isAdmin");
 
   const formData = new FormData(formAddUsers);
-  formData.append("nivel", checked ? 1 : 0);
+  formData.append("nivel", checked ? 2 : 0);
 
   let query = await fetch(base_url + "/Users/registerUser", {
     method: "POST",

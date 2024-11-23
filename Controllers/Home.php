@@ -29,4 +29,13 @@ class Home extends Controllers{
         }
     }
 
+    public function getProjectIndicator() {
+        if ($_GET) {
+            $requestUser = $this->model->selectProjectIndicator();
+
+            echo json_encode($requestUser, JSON_UNESCAPED_UNICODE);
+        }
+    }
+
+
 }

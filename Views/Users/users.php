@@ -2,6 +2,25 @@
 sideBar(); ?>
 
 <main class="main">
+<div class="header-wrap">
+        <div class="header-title">
+            
+            <h2>Usuarios</h2>
+
+
+
+        </div>
+        <div class="user-info">
+
+            <div class="input-box">
+                <input type="text" class="input-field" placeholder="Búsqueda" />
+                <i><img src="<?= media() ?>/icon/buscar.png" alt="búsqueda"></i>
+            </div>
+            <div class="username">
+                <h5><?= $_SESSION['nameUser'] ?></h5>
+            </div>
+        </div>
+    </div>
     <section class="card-container">
         <article class="d-flex justify-content-between">
             <div>
@@ -20,6 +39,7 @@ sideBar(); ?>
             </div>
             <button class="btn btn-primary" onclick="modalAddUserModal()">Agregar Usuario</button>
         </article>
+        <hr>
         <table id="usuarios" class="tabla-estilizada" style="width:100%;">
             <thead>
                 <tr>

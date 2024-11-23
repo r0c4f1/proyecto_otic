@@ -17,6 +17,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="<?= base_url(); ?>/Assets/css/fonts.css" rel="stylesheet">
         <link href="<?= base_url(); ?>/Assets/css/styles.css" rel="stylesheet" />
+        <link href="<?= base_url(); ?>/Assets/css/responsive.css" rel="stylesheet" />
     </head>
 <body id="page-top">
 

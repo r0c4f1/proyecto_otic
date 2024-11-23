@@ -1,0 +1,70 @@
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+  .sidebar {
+    width: 70px;
+  }
+  .sidebar:hover {
+    width: 200px;
+  }
+  .header-wrap {
+    flex-direction: column;
+  }
+  .input-box {
+    width: 100%;
+  }
+  .card-wrap {
+    flex-direction: column;
+  }
+}
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    bottom: 0;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+  }
+  .sidebar:hover {
+    width: 100%;
+  }
+  .menu {
+    flex-direction: row;
+    height: auto;
+  }
+  .menu li {
+    margin: 0;
+  }
+  .header-wrap {
+    flex-direction: column;
+  }
+  .input-box {
+    width: 100%;
+  }
+  .card-wrap {
+    flex-direction: column;
+  }
+  .card-one {
+    width: 100%;
+  }
+}
+@media (max-width: 480px) {
+  .header-title span,
+  .header-title h2 {
+    font-size: 1.2rem;
+  }
+  .username h5 {
+    font-size: 1rem;
+  }
+  .card-one {
+    height: auto;
+    padding: 0.5rem;
+  }
+  .card-inf-value {
+    font-size: 20px;
+  }
+  .card-detail {
+    font-size: 16px;
+  }
+}

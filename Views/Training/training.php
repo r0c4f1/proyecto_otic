@@ -3,6 +3,27 @@ sideBar();
 ?>
 
 <main class="main">
+
+<div class="header-wrap">
+        <div class="header-title">
+            
+            <h2>Capacitaciones</h2>
+
+
+
+        </div>
+        <div class="user-info">
+
+            <div class="input-box">
+                <input type="text" class="input-field" placeholder="Búsqueda" />
+                <i><img src="<?= media() ?>/icon/buscar.png" alt="búsqueda"></i>
+            </div>
+            <div class="username">
+                <h5><?= $_SESSION['nameUser'] ?></h5>
+            </div>
+        </div>
+    </div>
+<section class="card-container">
     <div class="row d-flex justify-content-center mt-5 mb-5">
         <section class="col-5">
             <header class="d-flex justify-content-between align-items-center">
@@ -42,7 +63,7 @@ sideBar();
 
         </section>
     </div>
-
+</section>
 
 </main>
 

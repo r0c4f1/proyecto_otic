@@ -11,6 +11,8 @@
 
 .tabla-estilizada th,
 .tabla-estilizada td {
+  text-align: center !important; 
+  vertical-align: middle !important; 
   padding: 8px;
   text-align: start;
 }
@@ -55,6 +57,15 @@
   margin: auto;
   background-color: #0fa94a;
   color: #0fa94a;
+  text-align: center;
+}
+.empty {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin: auto;
+  background-color: #eb1313;
+  color: #eb1313;
   text-align: center;
 }
 
