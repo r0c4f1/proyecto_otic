@@ -35,7 +35,7 @@ class Project extends Controllers{
             
             for ($i=0; $i < count($requestUser); $i++) { 
                 $editar = "<button class='btn btn-outline-success' onclick='modalEditarProyecto(".$requestUser[$i]["id_proyecto"].")'><i class='fa-regular fa-pen-to-square'></i></button>";
-                $eliminar = "<button class='btn btn-outline-danger' onclick='cancelarProyecto(".$requestUser[$i]["id_proyecto"].")'><i class='fa-solid fa-trash'></i></button>";
+                $eliminar = "<button class='btn btn-outline-danger' onclick='confirmed(".$requestUser[$i]["id_proyecto"].")'><i class='fa-solid fa-trash'></i></button>";
                 $requestUser[$i]['opc'] =  $editar . " " . $eliminar;
                 }
 

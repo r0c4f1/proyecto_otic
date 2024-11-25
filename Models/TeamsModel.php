@@ -8,7 +8,9 @@
 
 		public function selectTeams($id){
             if ($id == "") {
-                $sql = "SELECT id_equipoDeTrabajo, nombre_equipoDeTrabajo FROM equipodetrabajo WHERE status = 1";
+                $sql = "SELECT e.id_equipoDeTrabajo, e.nombre_equipoDeTrabajo, a.* FROM equipodetrabajo e 
+				LEFT JOIN asignacion_equipo a 
+				ON e.id_equipodetrabajo = a.id_equipo WHERE e.status = 1";
                 $request = $this->select_all($sql);
             }else {
                 $sql = "SELECT * FROM equipodetrabajo WHERE id_equipoDeTrabajo = $id AND status = 1";

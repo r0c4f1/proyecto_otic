@@ -114,6 +114,21 @@ function modalAddTraining() {
   myModal.show();
 }
 
+function confirmed(id){
+  Swal.fire({
+    title: "Estas Seguro?",
+    text: "Este cambio no sera reversible",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Confirmar!"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      cancelarCapacitacion(id);
+    }
+  });}
+
 async function cancelarCapacitacion(id) {
   let query = await fetch(`${base_url}/Training/cancelTraining/${id}`);
   let { status, title, msg } = await query.json();

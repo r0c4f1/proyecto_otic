@@ -110,6 +110,12 @@
                 </a>
             </li>
             <li>
+                <a href="<?= base_url() ?>/TypeIncident/typeIncident">
+                    <i class="fa-solid fa-boxes-stacked" style="color: #000; font-size: 20px; margin-left:5px;"></i>
+                    <span>Tipo Incidencias</span>
+                </a>
+            </li>
+            <li>
                 <a href="<?= base_url() ?>/Information/information">
                     <i class="fa-regular fa-file-lines" style="color: #000; font-size: 20px; margin-left:5px;"></i>
                     <span>Informes</span>

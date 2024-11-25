@@ -60,6 +60,21 @@ async function editar(id) {
   myModal.show();
 }
 
+function confirmed(id){
+  Swal.fire({
+    title: "Estas Seguro?",
+    text: "Este cambio no sera reversible",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Confirmar!"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      eliminar(id);
+    }
+  });}
+
 async function eliminar(id) {
   const formData = new FormData();
   formData.append("id_usuario", id);

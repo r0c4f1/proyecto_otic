@@ -33,7 +33,7 @@ class Teams extends Controllers{
             
             for ($i=0; $i < count($requestUser); $i++) { 
                 $editar = "<button class='btn btn-outline-success' onclick='modalEditarEquipoDeTrabajo(".$requestUser[$i]["id_equipoDeTrabajo"].")'><i class='fa-regular fa-pen-to-square'></i></button>";
-                $eliminar = "<button class='btn btn-outline-success' onclick='cancelarEquipoDeTrabajo(".$requestUser[$i]["id_equipoDeTrabajo"].")'><i class='fa-solid fa-trash'></i></button>";
+                $eliminar = "<button class='btn btn-outline-success' onclick='confirmed(".$requestUser[$i]["id_equipoDeTrabajo"].")'><i class='fa-solid fa-trash'></i></button>";
                 $requestUser[$i]['opc'] =  $editar . " " . $eliminar;
             }
 

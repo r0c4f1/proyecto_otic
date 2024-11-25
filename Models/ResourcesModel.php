@@ -18,30 +18,30 @@
 			return $request;
 		}
      
-        public function insertProject($nombre, $descripcion, $fecha_inicio, $fecha_fin, $estado){
-            $sql =  "INSERT INTO proyecto (nombre, descripcion, fecha_inicio, fecha_fin, estado) VALUES (?,?,?,?,?)";
+        public function insertResource($nombre, $tipo, $cantidad, $disponible){
+            $sql =  "INSERT INTO recursos (nombre, tipo, cantidad, disponible) VALUES (?,?,?,?)";
 
-            $arrData = array($nombre, $descripcion, $fecha_inicio, $fecha_fin, $estado);
+            $arrData = array($nombre, $tipo, $cantidad, $disponible);
 
 			$request = $this->insert($sql, $arrData);
 
 			return $request;
 		}
 
-        public function updateProject($nombre, $descripcion, $fecha_inicio, $fecha_fin, $estado, $id_proyecto){
-            $sql =  "UPDATE proyecto SET nombre = ?, descripcion = ?, fecha_inicio = ?, fecha_fin = ?, estado = ? WHERE  id_proyecto = $id_proyecto";
+        public function resourceUpdate($nombre, $tipo, $cantidad, $disponible, $id_recurso){
+            $sql =  "UPDATE recursos SET nombre = ?, tipo = ?, cantidad = ?, disponible = ? WHERE  id_recurso = '$id_recurso'";
 
-            $arrData = array($nombre, $descripcion, $fecha_inicio, $fecha_fin, $estado);
+            $arrData = array($nombre, $tipo, $cantidad, $disponible);
 
 			$request = $this->update($sql, $arrData);
 
 			return $request;
 		}
 
-        public function deleteProject($id_proyecto){
-            $sql =  "UPDATE proyecto SET status = ?  WHERE id_proyecto = $id_proyecto";
+        public function deleteResource($id_recurso, $status){
+            $sql =  "UPDATE recursos SET status = ?  WHERE id_recurso = $id_recurso";
 
-            $arrData = array(0);
+            $arrData = array($status);
 
 			$request = $this->update($sql, $arrData);
 

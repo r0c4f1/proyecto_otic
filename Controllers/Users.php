@@ -26,7 +26,7 @@ class Users extends Controllers {
 
             for ($i=0; $i < count($requestUser); $i++) { 
                 $editar = "<button class='btn btn-outline-success' onclick='editar(".$requestUser[$i]["id_usuario"].")'><i class='fa-regular fa-pen-to-square'></i></button>";
-                $eliminar = "<button class='btn btn-outline-success' onclick='eliminar(".$requestUser[$i]["id_usuario"].")'><i class='fa-solid fa-trash'></i></button>";
+                $eliminar = "<button class='btn btn-outline-success' onclick='confirmed(".$requestUser[$i]["id_usuario"].")'><i class='fa-solid fa-trash'></i></button>";
                 $requestUser[$i]['opc'] =  $editar . " " . $eliminar;
                 $requestUser[$i]['sexo'] = $requestUser[$i]['sexo'] ==  "M" ? "Masculino" : "Femenino";
                 if ( $requestUser[$i]['nivel'] == 0) {

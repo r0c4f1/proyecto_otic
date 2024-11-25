@@ -1,4 +1,4 @@
-const PROYECTO_TABLE = new DataTable("#proyecto", {
+const TYPEINCIDENT_TABLE = new DataTable("#type", {
   layout: {
     topEnd: false,
     topStart: {
@@ -11,17 +11,10 @@ const PROYECTO_TABLE = new DataTable("#proyecto", {
     url: `${base_url}/Assets/js/plugins/datatables/es-ES.json`,
   },
   ajax: {
-    url: `${base_url}/Project/getProject`,
+    url: `${base_url}/TypeIncident/getTypeIncident`,
     dataSrc: "",
   },
-  columns: [
-    { data: "nombre" },
-    { data: "descripcion" },
-    { data: "fecha_inicio" },
-    { data: "fecha_fin" },
-    { data: "estado" },
-    { data: "opc" },
-  ],
+  columns: [{ data: "nombre_tipo" }, { data: "categoria" }, { data: "opc" }],
   // dom: "lfrtip",
   paging: true,
   // responsive: true,
@@ -60,8 +53,8 @@ const PROYECTOPAPELERA_TABLE = new DataTable("#proyectoPapelera", {
   order: [[0, "desc"]],
 });
 
-function modalAddProjectModal() {
-  const myModal = new bootstrap.Modal("#addProjectModal");
+function modalAddTypeIncident() {
+  const myModal = new bootstrap.Modal("#addTypeIncident");
 
   myModal.show();
 }
@@ -85,14 +78,14 @@ function closeModalEditProjectModal() {
   btn.click();
 }
 
-async function addProject(e) {
+async function addTypeIncident(e) {
   e.preventDefault(); // Evita el envío normal del formulario
 
-  let formAddProject = document.getElementById("formAddProject");
-  const formData = new FormData(formAddProject);
+  let formAddTypeIncident = document.getElementById("formAddTypeIncident");
+  const formData = new FormData(formAddTypeIncident);
 
   try {
-    let query = await fetch(base_url + "/Project/registerProject", {
+    let query = await fetch(base_url + "/TypeIncident/registerTypeIncident", {
       method: "POST",
       body: formData,
     });
@@ -109,7 +102,7 @@ async function addProject(e) {
         timer: 1500,
       });
       closeModalAddProjectModal(); // Cierra el modal
-      PROYECTO_TABLE.ajax.reload(); // Recarga la tabla
+      TYPEINCIDENT_TABLE.ajax.reload(); // Recarga la tabla
       document.querySelectorAll("input").forEach((input) => (input.value = "")); // Limpia los campos
     } else {
       Swal.fire({
@@ -131,16 +124,16 @@ async function addProject(e) {
   }
 }
 
-async function updateProject(e) {
+async function updateTypeIncident(e) {
   e.preventDefault();
 
-  let formAddProject = document.getElementById("formEditProject");
+  let formUpdateTypeIncident = document.getElementById("formEditTypeIncident");
   // let { checked } = document.getElementById("isAdmin");
 
-  const formData = new FormData(formAddProject);
+  const formData = new FormData(formUpdateTypeIncident);
   // formData.append("admin", checked ? 1 : 0);
 
-  let query = await fetch(base_url + "/Project/updateProject", {
+  let query = await fetch(base_url + "/TypeIncident/updateTypeIncident", {
     method: "POST",
     body: formData,
   }).catch(() => {
@@ -165,7 +158,7 @@ async function updateProject(e) {
       timer: 1500,
     });
     closeModalEditProjectModal();
-    PROYECTO_TABLE.ajax.reload();
+    TYPEINCIDENT_TABLE.ajax.reload();
     document.querySelectorAll("input").forEach((input) => (input.value = ""));
   } else {
     Swal.fire({
@@ -178,27 +171,24 @@ async function updateProject(e) {
   }
 }
 
-async function modalEditarProyecto(id_proyecto) {
-  let query = await fetch(`${base_url}/Project/getProject/${id_proyecto}`);
-  let data = await query.json();
-  console.log(id_proyecto);
-
-  const myModal = new bootstrap.Modal("#modalEditProject");
+async function modalEditTypeIncident(id) {
+  const myModal = new bootstrap.Modal("#modalEditTypeIncident");
   myModal.show();
 
-   let selectEditState = document.getElementById("selectEditState");
+  let formEditTypeIncident = document.getElementById("formEditTypeIncident");
+  let inputs = formEditTypeIncident.querySelectorAll("input");
+  let selectCategory = document.getElementById("selectCategory");
 
-  let formProject = document.getElementById("formEditProject");
+  let query = await fetch(`${base_url}/TypeIncident/getTypeIncident/${id}`);
+  let { categoria, nombre_tipo } = await query.json();
 
-  formProject.querySelectorAll("input").item(0).value = id_proyecto;
-  formProject.querySelectorAll("input").item(1).value = data.nombre;
-  formProject.querySelectorAll("input").item(2).value = data.descripcion;
-  formProject.querySelectorAll("input").item(3).value = data.fecha_inicio;
-  formProject.querySelectorAll("input").item(4).value = data.fecha_fin;
-  selectEditState.value = data.estado;
+  inputs.item(0).value = id;
+  selectCategory.value = categoria;
+  inputs.item(1).value = nombre_tipo;
 }
 
-function confirmed(id){ 
+function confirmed(id) {
+  //AHORA CUANDO LE DAS AL BOTON DE BORRAR LO RECIBE AQUI
   Swal.fire({
     title: "Estas Seguro?",
     text: "Este cambio no sera reversible",
@@ -206,15 +196,18 @@ function confirmed(id){
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
     cancelButtonColor: "#d33",
-    confirmButtonText: "Confirmar!"
+    confirmButtonText: "Confirmar!",
   }).then((result) => {
-    if (result.isConfirmed) { 
-      cancelarProyecto(id);
+    if (result.isConfirmed) {
+      //SI LE DAS QUE SI LLAMA A LA FUNCION DE BORRAR QUE YA CONOCEMOS
+      cancelTypeIncident(id);
     }
-  });}
+  });
+}
 
-async function cancelarProyecto(id) {
-  let query = await fetch(`${base_url}/Project/cancelProject/${id}`);
+async function cancelTypeIncident(id) {
+  //ESTA ES LA DE BORRAR QUE YA CONOCEMOS
+  let query = await fetch(`${base_url}/TypeIncident/cancelTypeIncident/${id}`);
   let { status, title, msg } = await query.json();
 
   if (status) {
@@ -226,8 +219,7 @@ async function cancelarProyecto(id) {
       showConfirmButton: false,
       timer: 1500,
     });
-    PROYECTO_TABLE.ajax.reload();
-    PROYECTOPAPELERA_TABLE.ajax.reload();
+    TYPEINCIDENT_TABLE.ajax.reload();
   } else {
     Swal.fire({
       icon: "error",
@@ -238,6 +230,7 @@ async function cancelarProyecto(id) {
     });
   }
 }
+
 async function restaurarProyecto(id) {
   let query = await fetch(`${base_url}/Project/restoreProject/${id}`);
   let { status, title, msg } = await query.json();
